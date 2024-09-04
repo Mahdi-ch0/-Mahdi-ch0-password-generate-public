@@ -1,0 +1,18 @@
+{
+  "dependencies": {
+    "tailwindcss": "^3.4.10"
+  },
+  "name": "config",
+  "version": "1.0.0",
+  "main": "tailwind.config.js",
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "tsc": "tsc -w",
+    "tailwind": "npx tailwindcss -i ../frontend/src/style/config/tailwind.css -o ../frontend/src/style/css/style.css -w"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": ""
+}

@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" href="../../../style/css/style.css" />
+        <link
+            rel="shortcut icon"
+            href="../../../../public/ico/favicon.ico"
+            type="image/x-icon"
+        />
+        <script type="module" src="../../../script/js/home/initial.js"></script>
+        <script type="module" src="../../../script/js/home/screen.js"></script>
+        <script
+            type="module"
+            src="../../../script/js/home/generate.js"
+        ></script>
+        <title>Random Password Generate</title>
+    </head>
+    <body class="text-center dark:bg-black">
+        <div
+            class="tooltip-information hidden flex visible fixed bottom-3 left-1/2 z-50 px-3 py-1 rounded-xl justify-center items-center space-x-1 bg-white dark:bg-gray-700 border border-black dark:border-none opacity-1 shadow-sm transform -translate-x-1/2"
+        >
+            <img
+                src="../../../../public/svg/information/error.svg"
+                alt="ico information"
+                class="h-11"
+            />
+            <p
+                role="try information"
+                class="try-information text-lg font-bold text-black dark:text-white"
+            >
+                information
+            </p>
+        </div>
+        <header
+            class="h-14 w-full flex justify-between items-center px-4 dark:bg-white border-b-2 overflow-hidden"
+        >
+            <a href="#" class="">
+                <button class="pointer-events-none">
+                    <img
+                        src="../../../../public/svg/avast-logo-default.svg"
+                        alt="logo"
+                        class=""
+                    />
+                </button>
+            </a>
+            <nav>
+                <div
+                    class="menu-group border-b-0 h-14 w-16 rounded-lg text-center flex justify-center items-center -mr-3"
+                >
+                    <img
+                        src="../../../../public/svg/menu_rounded.svg"
+                        alt="menu"
+                        class="menu-btn h-7 cursor-pointer lg:hidden"
+                    />
+                </div>
+                <ul
+                    class="list-menu bg-white dark:bg-black h-screen w-96 right-0 top-14 border border-t-0 border-neutral-700 dark:border-white rounded-b-xl absolute p-3 items-start z-10 hidden lg:flex lg:justify-around lg:items-center lg:w-[35rem] lg:h-14 lg:top-0 lg:-translate-y-[0.5rem] lg:border-none lg:mt-[0.6rem] lg:bg-transparent"
+                >
+                    <li class="list__item">
+                        <a href="" class="list__link font-bold">
+                            <bold class="list__title">For home</bold>
+                        </a>
+                        <p class="list__detalis text-neutral-600">
+                            Products for PC and mobile phone protection
+                        </p>
+                    </li>
+                    <li class="list__item">
+                        <a href="" class="list__link">
+                            <bold class="list__title">For business</bold>
+                        </a>
+                        <p class="list__detalis">
+                            Protect your business with Avast
+                        </p>
+                    </li>
+                    <li class="list__item">
+                        <a href="" class="list__link">
+                            <bold class="list__title">For partners</bold>
+                        </a>
+                        <p class="list__detalis">
+                            Partner with Avast and boost your business
+                        </p>
+                    </li>
+                    <li class="list__item">
+                        <a href="" class="list__link">
+                            <bold class="list__title">About us</bold>
+                        </a>
+                        <p class="list__detalis">Careers, media, contact</p>
+                    </li>
+                    <li class="list__item">
+                        <a href="" class="list__link">
+                            <bold class="list__title">Blogs</bold>
+                        </a>
+                        <p class="list__detalis">
+                            Academy, Blog, Decoded, Forum
+                        </p>
+                    </li>
+                </ul>
+            </nav>
+        </header>
+        <div class="container m-auto px-2">
+            <main class="flex flex-col justify-center space-y-5">
+                <h1 class="font-bold text-5xl mt-8">
+                    Random Password Generator
+                </h1>
+                <p class="information-initial text-center">
+                    Crete strong and secure password to keep your account safe
+                    online.
+                </p>
+                <img
+                    src="../../../../public/svg/password-level/verystrong.svg"
+                    alt=" password quality level"
+                    class="generate-quality-img pointer-events-none"
+                />
+                <div
+                    class="password-generator flex flex-col items-center mx-auto"
+                >
+                    <div
+                        class="password-generator__custom flex h-12 lg:w-[32rem] w-[25rem] px-4 mb-4 justify-between items-center border rounded-full shadow-inner dark:border-white hidden"
+                    >
+                        <input
+                            type="text"
+                            name="custom generate password"
+                            id=""
+                            placeholder="Write text for generate password"
+                            minlength="1"
+                            maxlength="50"
+                            class="password-generator__custom__view text-neutral-600 dark:text-white w-full bg-transparent outline-none text-lg"
+                        />
+                        <button type="button" class="generate-paste-btn">
+                            <img
+                                src="../../../../public/svg/light-mode/paste.svg"
+                                alt="copy"
+                                class="h-6 light-mode"
+                            />
+                            <img
+                                src="../../../../public/svg/dark-mode/paste.svg"
+                                alt="copy"
+                                class="h-6 dark-mode hidden"
+                            />
+                        </button>
+                    </div>
+                    <button
+                        type="button"
+                        class="generate-custom hidden relative p-1 -mt-2 mb-6 rounded-lg bg-[#36c565] text-white"
+                    >
+                        Generate
+                    </button>
+                    <div
+                        class="password-generator__view h-12 w-[21rem] px-4 flex justify-between items-center border rounded-full shadow-inner dark:border-white"
+                    >
+                        <input
+                            type="text"
+                            name="random password generator view"
+                            class="generate-show text-neutral-600 dark:text-white w-36 bg-transparent outline-none text-lg"
+                            value=""
+                            readonly
+                        />
+                        <span
+                            class="generate-quality w-24 bg-[#36c565] font-bold text-sm text-neutral-900 dark:text-white rounded-md px-2 text-start flex items-center"
+                            >very strong</span
+                        >
+                        <button class="generate-replay">
+                            <img
+                                src="../../../../public/svg/replay.svg"
+                                alt="replay generate"
+                                class="h-6 rotate-45 pointer-events-none"
+                            />
+                        </button>
+                        <button type="button" class="generate-copy-btn">
+                            <img
+                                src="../../../../public/svg/light-mode/copy.svg"
+                                alt="copy"
+                                class="light-mode h-6"
+                            />
+                            <img
+                                src="../../../../public/svg/dark-mode/copy.svg"
+                                alt="copy"
+                                class="dark-mode hidden h-6"
+                            />
+                        </button>
+                    </div>
+                    <div class="password-length mt-14">
+                        <p class="">
+                            Password length:
+                            <span class="generate-length-show font-bold">
+                                9</span
+                            >
+                        </p>
+                        <div
+                            class="choose-password-length flex justify-around mt-2"
+                        >
+                            <button
+                                type="button"
+                                class="generate-size-decrement"
+                            >
+                                <img
+                                    src="../../../../public/svg/minus.svg"
+                                    alt="decrement length"
+                                    class="h-11 pointer-events-none"
+                                />
+                            </button>
+                            <input
+                                type="range"
+                                name="range password length"
+                                id=""
+                                min="1"
+                                max="50"
+                                step="1"
+                                value="15"
+                                class="generate-size-range w-52 cursor-pointer"
+                            />
+                            <button
+                                type="button"
+                                class="generate-size-increment"
+                            >
+                                <img
+                                    src="../../../../public/svg/add.svg"
+                                    alt="increment length"
+                                    class="h-11 pointer-events-none"
+                                />
+                            </button>
+                        </div>
+                    </div>
+                    <div
+                        class="password-generate__type mt-6 flex flex-col justify-center items-center font-bold space-x-2 mb-4"
+                    >
+                        <p class="title mb-6">Characters used:</p>
+                        <div class="checkbox">
+                            <input
+                                type="checkbox"
+                                checked
+                                name=""
+                                id="captal-case"
+                                class="uppercase-checkbox accent-black rounded-lg h-5 w-5"
+                            />
+                            <label for="captal-case" class="type pr-3"
+                                >ABC</label
+                            >
+                            <input
+                                type="checkbox"
+                                checked
+                                name=""
+                                id="small-case"
+                                class="lowercase-checkbox accent-black rounded-lg h-5 w-5"
+                            />
+                            <label for="small-case" class="type pr-3"
+                                >abc</label
+                            >
+                            <input
+                                type="checkbox"
+                                checked
+                                name=""
+                                id="number-case"
+                                class="number-case-checkbox accent-black rounded-lg h-5 w-5"
+                            />
+                            <label for="number-case" class="type pr-3"
+                                >123</label
+                            >
+                            <input
+                                type="checkbox"
+                                name=""
+                                id="special-charcter-case"
+                                class="specializes-case-checkbox accent-black rounded-lg h-5 w-5"
+                            />
+                            <label for="special-charcter-case" class="type pr-3"
+                                >#$&</label
+                            >
+                        </div>
+                    </div>
+                    <button
+                        type="button"
+                        class="custom-generate h-10 w-40 mt-7 mb-11 rounded-full bg-neutral-600 font-bold text-white"
+                    >
+                        Custom generate
+                    </button>
+                </div>
+            </main>
+        </div>
+        <div
+            class="FAQ h-full bg-[#f7fafc] dark:bg-black flex flex-col justify-center items-center space-y-7 py-20"
+        >
+            <h1 class="font-bold text-4xl select-text">
+                Password generate FAQs
+            </h1>
+            <p class="select-text">
+                Question about this random password generator? Answers below!
+            </p>
+            <div
+                class="FAQ-show lg:w-[50rem] w-[27rem] h-full bg-white dark:bg-black border border-[#dce7ed] dark:border-white rounded-2xl"
+            >
+                <details
+                    class="details group text-left p-7 pb-7 open:first:text-[#0070f6] border-b border-[#dce7ed]"
+                >
+                    <summary class="summary-style">
+                        Is there a secure way to store passwords?
+                    </summary>
+                    <p class="text-slate-500 text-sm">
+                        Absolutely! Avast's Random Password Generator uses
+                        mathematical entropy to create a random password
+                        consisting of numbers, letters, and symbols. The
+                        characters rendered from this auto password generator
+                        are entirely random and won't transmit over the
+                        internet, providing the most secure password during the
+                        password generator process. No one, not even Avast, can
+                        see your private, personal password.
+                    </p>
+                </details>
+                <details
+                    class="details group text-left p-7 pb-7 open:first:text-[#0070f6] border-b border-[#dce7ed]"
+                >
+                    <summary class="summary-style">
+                        Is there a secure way to store passwords?
+                    </summary>
+                    <p class="text-slate-500 text-sm">
+                        Absolutely! Avast's Random Password Generator uses
+                        mathematical entropy to create a random password
+                        consisting of numbers, letters, and symbols. The
+                        characters rendered from this auto password generator
+                        are entirely random and won't transmit over the
+                        internet, providing the most secure password during the
+                        password generator process. No one, not even Avast, can
+                        see your private, personal password.
+                    </p>
+                </details>
+                <details
+                    class="details group text-left p-7 pb-7 open:first:text-[#0070f6] border-b border-[#dce7ed]"
+                >
+                    <summary class="summary-style">
+                        Is there a secure way to store passwords?
+                    </summary>
+                    <p class="text-slate-500 text-sm">
+                        Absolutely! Avast's Random Password Generator uses
+                        mathematical entropy to create a random password
+                        consisting of numbers, letters, and symbols. The
+                        characters rendered from this auto password generator
+                        are entirely random and won't transmit over the
+                        internet, providing the most secure password during the
+                        password generator process. No one, not even Avast, can
+                        see your private, personal password.
+                    </p>
+                </details>
+                <details
+                    class="details group text-left p-7 pb-7 open:first:text-[#0070f6]"
+                >
+                    <summary class="summary-style">
+                        Is there a secure way to store passwords?
+                    </summary>
+                    <p class="text-slate-500 text-sm">
+                        Absolutely! Avast's Random Password Generator uses
+                        mathematical entropy to create a random password
+                        consisting of numbers, letters, and symbols. The
+                        characters rendered from this auto password generator
+                        are entirely random and won't transmit over the
+                        internet, providing the most secure password during the
+                        password generator process. No one, not even Avast, can
+                        see your private, personal password.
+                    </p>
+                </details>
+            </div>
+        </div>
+        <footer></footer>
+        <button
+            type="button"
+            class="dark-mode-button h-12 w-12 border rounded-full p-2 transition-colors duration-500 bg-sky-700 hover:scale-105 hover:bg-transparent hover:border hover:border-[#4c4c4c] dark:bg-yellow-400 group text-center fixed bottom-3 right-4 z-30"
+        >
+            <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="#4c4c4c"
+                viewBox="0 0 24 24"
+                class="light-mode__btn hidden group-hover:bg-white dark:inline"
+            >
+                <path
+                    d="M11.875 0.1875C11.371094 0.25 10.996094 0.679688 11 1.1875L11 3.1875C10.996094 3.546875 11.183594 3.882813 11.496094 4.066406C11.808594 4.246094 12.191406 4.246094 12.503906 4.066406C12.816406 3.882813 13.003906 3.546875 13 3.1875L13 1.1875C13.003906 0.898438 12.878906 0.625 12.664063 0.433594C12.449219 0.242188 12.160156 0.152344 11.875 0.1875 Z M 4 3.375C3.625 3.441406 3.324219 3.714844 3.21875 4.078125C3.113281 4.445313 3.222656 4.835938 3.5 5.09375L4.90625 6.5C5.148438 6.796875 5.535156 6.933594 5.910156 6.847656C6.28125 6.761719 6.574219 6.46875 6.660156 6.097656C6.746094 5.722656 6.609375 5.335938 6.3125 5.09375L4.90625 3.6875C4.71875 3.488281 4.460938 3.378906 4.1875 3.375C4.15625 3.375 4.125 3.375 4.09375 3.375C4.0625 3.375 4.03125 3.375 4 3.375 Z M 19.6875 3.375C19.460938 3.40625 19.25 3.519531 19.09375 3.6875L17.6875 5.09375C17.390625 5.335938 17.253906 5.722656 17.339844 6.097656C17.425781 6.46875 17.71875 6.761719 18.089844 6.847656C18.464844 6.933594 18.851563 6.796875 19.09375 6.5L20.5 5.09375C20.796875 4.808594 20.886719 4.367188 20.726563 3.988281C20.570313 3.609375 20.191406 3.367188 19.78125 3.375C19.75 3.375 19.71875 3.375 19.6875 3.375 Z M 12 5.1875C8.15625 5.1875 5 8.34375 5 12.1875C5 16.03125 8.15625 19.1875 12 19.1875C15.84375 19.1875 19 16.03125 19 12.1875C19 8.34375 15.84375 5.1875 12 5.1875 Z M 12 7.1875C14.753906 7.1875 17 9.433594 17 12.1875C17 14.941406 14.753906 17.1875 12 17.1875C9.246094 17.1875 7 14.941406 7 12.1875C7 9.433594 9.246094 7.1875 12 7.1875 Z M 0.8125 11.1875C0.261719 11.238281 -0.144531 11.730469 -0.09375 12.28125C-0.0429688 12.832031 0.449219 13.238281 1 13.1875L3 13.1875C3.359375 13.191406 3.695313 13.003906 3.878906 12.691406C4.058594 12.378906 4.058594 11.996094 3.878906 11.683594C3.695313 11.371094 3.359375 11.183594 3 11.1875L1 11.1875C0.96875 11.1875 0.9375 11.1875 0.90625 11.1875C0.875 11.1875 0.84375 11.1875 0.8125 11.1875 Z M 20.8125 11.1875C20.261719 11.238281 19.855469 11.730469 19.90625 12.28125C19.957031 12.832031 20.449219 13.238281 21 13.1875L23 13.1875C23.359375 13.191406 23.695313 13.003906 23.878906 12.691406C24.058594 12.378906 24.058594 11.996094 23.878906 11.683594C23.695313 11.371094 23.359375 11.183594 23 11.1875L21 11.1875C20.96875 11.1875 20.9375 11.1875 20.90625 11.1875C20.875 11.1875 20.84375 11.1875 20.8125 11.1875 Z M 5.46875 17.59375C5.25 17.632813 5.054688 17.742188 4.90625 17.90625L3.5 19.28125C3.101563 19.667969 3.097656 20.304688 3.484375 20.703125C3.871094 21.101563 4.507813 21.105469 4.90625 20.71875L6.3125 19.3125C6.636719 19.011719 6.722656 18.535156 6.527344 18.140625C6.335938 17.742188 5.902344 17.523438 5.46875 17.59375 Z M 18.1875 17.59375C17.8125 17.660156 17.511719 17.933594 17.40625 18.296875C17.300781 18.664063 17.410156 19.054688 17.6875 19.3125L19.09375 20.71875C19.492188 21.105469 20.128906 21.101563 20.515625 20.703125C20.902344 20.304688 20.898438 19.667969 20.5 19.28125L19.09375 17.90625C18.886719 17.683594 18.585938 17.570313 18.28125 17.59375C18.25 17.59375 18.21875 17.59375 18.1875 17.59375 Z M 11.875 20.1875C11.371094 20.25 10.996094 20.679688 11 21.1875L11 23.1875C10.996094 23.546875 11.183594 23.882813 11.496094 24.066406C11.808594 24.246094 12.191406 24.246094 12.503906 24.066406C12.816406 23.882813 13.003906 23.546875 13 23.1875L13 21.1875C13.003906 20.898438 12.878906 20.625 12.664063 20.433594C12.449219 20.242188 12.160156 20.152344 11.875 20.1875Z"
+                />
+            </svg>
+
+            <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="white"
+                viewBox="0 0 64 64"
+                class="dark-mode__btn group-hover:fill-sky-700 dark:hidden"
+            >
+                <path
+                    d="M49.788,52.61c-4.036-1.722-7.563-4.624-10.004-8.259C37.328,40.725,35.997,36.378,36,32c-0.003-4.378,1.328-8.724,3.783-12.351c2.441-3.635,5.968-6.537,10.004-8.259l0.001,0l1.934-0.919l0.012-1.801l-1.947-0.957C45.814,5.76,41.278,4.9,36.798,5.104c-4.488,0.234-8.95,1.613-12.834,3.977c-3.914,2.332-7.17,5.745-9.467,9.717C12.219,22.791,11.018,27.4,11,32c0.018,4.6,1.219,9.209,3.497,13.202c2.297,3.972,5.553,7.385,9.466,9.717c3.884,2.364,8.346,3.742,12.834,3.977c4.48,0.204,9.017-0.656,12.99-2.609l0.001,0l2.107-0.956l-0.021-1.83L49.788,52.61z M37.184,53.933c-3.679-0.374-7.234-1.652-10.258-3.689c-3.022-2.034-5.571-4.749-7.289-7.919c-0.855-1.583-1.53-3.26-1.98-4.996C17.222,35.589,17.001,33.798,17,32c0.001-1.798,0.222-3.589,0.657-5.329c0.45-1.736,1.126-3.413,1.98-4.996c1.718-3.17,4.267-5.885,7.289-7.919c3.024-2.037,6.579-3.315,10.258-3.689c2.15-0.273,4.333-0.203,6.485,0.148c0,0-12.681,6.067-12.67,21.785c-0.011,15.734,12.67,21.785,12.67,21.785C41.518,54.137,39.335,54.206,37.184,53.933z"
+                />
+            </svg>
+        </button>
+    </body>
+</html>

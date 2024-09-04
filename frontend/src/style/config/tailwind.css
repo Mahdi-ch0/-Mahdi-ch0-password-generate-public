@@ -1,0 +1,76 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+    font-family: "Roboto";
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+    src: url("../../../public/font/Roboto/Roboto-Bold.ttf") format("ttf");
+}
+
+@layer base {
+    * {
+        @apply select-none;
+        @apply font-roboto;
+        @apply list-none;
+        @apply dark:text-white;
+    }
+
+    details summary,
+    details p {
+        @apply select-text;
+    }
+
+    .password-generate__type input,
+    .password-generate__type label {
+        @apply cursor-pointer;
+    }
+
+    .summary-style {
+        @apply group-hover:text-[#0070f6] open:text-[#0070f6] font-bold text-sm dark:text-white;
+    }
+
+    .summary-style::after {
+        content: "";
+        display: flex;
+        height: 2rem;
+        background: url("../../../public/svg/add.svg") no-repeat;
+        background-position: right;
+        transform: translateY(-1.5rem);
+        cursor: pointer;
+    }
+
+    .details[open] .summary-style::after {
+        background: url("../../../public/svg/minus.svg") no-repeat;
+        content: "";
+        display: flex;
+        height: 2rem;
+        background-position: right;
+        transform: translateY(-1.5rem);
+        cursor: pointer;
+    }
+
+    nav ul li {
+        @apply pb-5 pt-3 text-left space-y-4 border-b border-neutral-600 dark:border-white w-full lg:w-fit lg:border-none;
+    }
+
+    nav ul li a {
+        @apply flex flex-col font-bold text-black dark:text-black hover:opacity-70;
+    }
+
+    nav ul li p {
+        @apply text-neutral-600 dark:text-neutral-700 lg:hidden;
+    }
+
+     .generate-custom::before {
+        content: "";
+        position: absolute;
+        bottom: -70%;
+        left: 38%;
+        border: solid;
+        border-width: 10px;
+        border-color: #36c565 transparent transparent transparent;
+    } 
+}
