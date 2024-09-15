@@ -4,7 +4,6 @@ export class Generator {
     constructor(generateShow, upperCase, lowerCase, numberCase, specialCase, generateLength) {
         this.generatePasswordInitial = "";
         this.generatePasswordCurrent = "";
-        // generateLength: String;
         this.upperCase = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
         this.lowerCase = "abcdefghijklmnopqrstuvwxyz";
         this.numberCase = "1234567890";

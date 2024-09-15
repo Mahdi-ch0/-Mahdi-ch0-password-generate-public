@@ -34,11 +34,21 @@ const numberCaseCheckbox = document.querySelector(
 const specialCaseCheckbox = document.querySelector(
     ".specializes-case-checkbox"
 ) as HTMLInputElement;
-const passwordCustomView = document.querySelector('.password-generator__custom__view') as HTMLInputElement;
-const generateCustomBtn = document.querySelector('.generate-custom') as HTMLButtonElement;
-const generatePasteBtn = document.querySelector('.generate-paste-btn') as HTMLButtonElement;
-const customGenerate = document.querySelector('.custom-generate') as HTMLButtonElement;
-const passwordGenerationCustom = document.querySelector('.password-generator__custom') as HTMLDivElement;
+const passwordCustomView = document.querySelector(
+    ".password-generator__custom__view"
+) as HTMLInputElement;
+const generateCustomBtn = document.querySelector(
+    ".generate-custom"
+) as HTMLButtonElement;
+const generatePasteBtn = document.querySelector(
+    ".generate-paste-btn"
+) as HTMLButtonElement;
+const customGenerate = document.querySelector(
+    ".custom-generate"
+) as HTMLButtonElement;
+const passwordGenerationCustom = document.querySelector(
+    ".password-generator__custom"
+) as HTMLDivElement;
 
 const generateSizeRangeInitial = Number(generateSizeRange.value);
 
@@ -50,7 +60,6 @@ const instantGeneratorInitial = new Generator(
     specialCaseCheckbox.checked,
     generateSizeRangeInitial
 );
-
 
 export const initial = {
     updateLength: (): void => {
@@ -70,20 +79,18 @@ export const initial = {
     },
 
     generateCopyBtn: (): void => {
-        
         try {
             navigator.clipboard.writeText(
                 instantGeneratorInitial.generatePasswordCurrent
             );
-            alerts.tooltipInformation.successful('Copy text', 10, 2000);
-
+            alerts.tooltipInformation.successful("Copy text", 10, 2000);
         } catch (error) {
-            alerts.tooltipInformation.failure('Failure in copy', 0, 2000);
+            alerts.tooltipInformation.failure("Failure in copy", 0, 2000);
         }
     },
 };
 
-generateCopyBtn.addEventListener("click", (): void => {  
+generateCopyBtn.addEventListener("click", (): void => {
     initial.generateCopyBtn();
 });
 
@@ -92,7 +99,11 @@ generateSizeDecrementBtn.addEventListener("click", (): void => {
         initial.passwordLength.decrement();
         initial.updateLength();
         instantGeneratorInitial.replay();
-        instantGeneratorInitial.length(generateLengthShow.innerHTML, customGenerateMode, passwordCustomView.value);
+        instantGeneratorInitial.length(
+            generateLengthShow.innerHTML,
+            customGenerateMode,
+            passwordCustomView.value
+        );
     }
 });
 generateSizeIncrementBtn.addEventListener("click", (): void => {
@@ -100,90 +111,137 @@ generateSizeIncrementBtn.addEventListener("click", (): void => {
         initial.passwordLength.increment();
         initial.updateLength();
         instantGeneratorInitial.replay();
-        instantGeneratorInitial.length(generateLengthShow.innerHTML, customGenerateMode, passwordCustomView.value);
+        instantGeneratorInitial.length(
+            generateLengthShow.innerHTML,
+            customGenerateMode,
+            passwordCustomView.value
+        );
     }
 });
 generateSizeRange.addEventListener("input", (): void => {
     initial.updateLength();
     instantGeneratorInitial.replay();
-    instantGeneratorInitial.length(generateLengthShow.innerHTML, customGenerateMode, passwordCustomView.value);
+    instantGeneratorInitial.length(
+        generateLengthShow.innerHTML,
+        customGenerateMode,
+        passwordCustomView.value
+    );
 });
+let lengthCheckbox = "3";
+const haveCheckboxList: string[] = ["captal-case", "small-case", "number-case"];
+const haveCheckboxFunc = function (typeCase: string, checkbox: boolean): void {
+    if (checkbox) {
+        haveCheckboxList.push(typeCase);
+    } else {
+        const indexOfCheckbox = haveCheckboxList.indexOf(typeCase);
+        haveCheckboxList.splice(indexOfCheckbox, 1);
+    }
 
-uppercaseCheckbox.addEventListener("change", (): void => {
-    const func = instantGeneratorInitial.checkbox();
-    func.upperCaseFunc(uppercaseCheckbox.checked);
-    instantGeneratorInitial.calculator();
+    lengthCheckbox = haveCheckboxList.length.toString();
+};
+uppercaseCheckbox.addEventListener("click", (): void => {
+    haveCheckboxFunc(uppercaseCheckbox.id, uppercaseCheckbox.checked);
+
+    if (lengthCheckbox === "0") {
+        if ((haveCheckboxList[0] = "captal-case"))
+            uppercaseCheckbox.checked = true;
+    } else {
+        const func = instantGeneratorInitial.checkbox();
+        func.upperCaseFunc(uppercaseCheckbox.checked);
+        instantGeneratorInitial.calculator();
+    }
 });
 lowercaseCheckbox.addEventListener("change", (): void => {
-    const func = instantGeneratorInitial.checkbox();
-    func.lowerCaseFunc(lowercaseCheckbox.checked);
-    instantGeneratorInitial.calculator();
+    haveCheckboxFunc(lowercaseCheckbox.id, lowercaseCheckbox.checked);
+
+    if (lengthCheckbox === "0") {
+        if ((haveCheckboxList[0] = "small-case"))
+            lowercaseCheckbox.checked = true;
+    } else {
+        const func = instantGeneratorInitial.checkbox();
+        func.lowerCaseFunc(lowercaseCheckbox.checked);
+        instantGeneratorInitial.calculator();
+    }
 });
 numberCaseCheckbox.addEventListener("change", (): void => {
-    const func = instantGeneratorInitial.checkbox();
-    func.numberCaseFunc(numberCaseCheckbox.checked);
-    instantGeneratorInitial.calculator();
+    haveCheckboxFunc(numberCaseCheckbox.id, numberCaseCheckbox.checked);
+
+    if (lengthCheckbox === "0") {
+        if ((haveCheckboxList[0] = "number-case"))
+            numberCaseCheckbox.checked = true;
+    } else {
+        const func = instantGeneratorInitial.checkbox();
+        func.numberCaseFunc(numberCaseCheckbox.checked);
+        instantGeneratorInitial.calculator();
+    }
 });
 specialCaseCheckbox.addEventListener("change", (): void => {
-    const func = instantGeneratorInitial.checkbox();
-    func.specialCaseFunc(specialCaseCheckbox.checked);
-    instantGeneratorInitial.calculator();
+    haveCheckboxFunc(specialCaseCheckbox.id, specialCaseCheckbox.checked);
+
+    if (lengthCheckbox === "0") {
+        if ((haveCheckboxList[0] = "special-charcter-case"))
+            specialCaseCheckbox.checked = true;
+    } else {
+        const func = instantGeneratorInitial.checkbox();
+        func.specialCaseFunc(specialCaseCheckbox.checked);
+        instantGeneratorInitial.calculator();
+    }
 });
 generateReplay.addEventListener("click", (): void => {
     instantGeneratorInitial.replay();
-    
+
     if (!customGenerateMode) {
-      instantGeneratorInitial.calculatorCustom(passwordCustomView.value);  
-    
+        instantGeneratorInitial.calculatorCustom(passwordCustomView.value);
     } else {
         instantGeneratorInitial.calculator();
     }
 });
 
-generateCustomBtn.addEventListener('click', (): void => {
-    instantGeneratorInitial.calculatorCustom(passwordCustomView.value); 
-})
+generateCustomBtn.addEventListener("click", (): void => {
+    instantGeneratorInitial.calculatorCustom(passwordCustomView.value);
+});
 
-generatePasteBtn.addEventListener('click', (): void => {
+generatePasteBtn.addEventListener("click", (): void => {
     try {
-     navigator.clipboard.readText().then(paste => {
-         passwordCustomView.value = paste
-     });
-     
+        navigator.clipboard.readText().then((paste) => {
+            passwordCustomView.value = paste;
+        });
     } catch (error) {
-         alerts.tooltipInformation.failure('Failure in paste', 0, 1500);
+        alerts.tooltipInformation.failure("Failure in paste", 0, 1500);
     }
-     
- }) 
+});
 
- export let customGenerateMode = true;
- customGenerate.addEventListener('click', (): void => {
-     const passwordType = document.querySelector('.password-generate__type') as HTMLDivElement;
-     instantGeneratorInitial.initialCustomGenerate(customGenerateMode);
- 
-     try {
-         if (customGenerateMode) {
-            passwordCustomView.value = '';
-            instantGeneratorInitial.generateQualityCalculator(customGenerateMode)
-             customGenerate.textContent = 'Default generate';
-             passwordGenerationCustom.classList.toggle('hidden');
-             passwordType.classList.toggle('hidden');
-             generateCustomBtn.classList.toggle('hidden');
-             customGenerateMode = false;
-         } else {
-             customGenerate.innerHTML = 'Custom generate';
-             passwordGenerationCustom.classList.toggle('hidden');
-             passwordType.classList.toggle('hidden');
-             generateCustomBtn.classList.toggle('hidden');
-             customGenerateMode = true;
-         }
+export let customGenerateMode = true;
+customGenerate.addEventListener("click", (): void => {
+    const passwordType = document.querySelector(
+        ".password-generate__type"
+    ) as HTMLDivElement;
+    instantGeneratorInitial.initialCustomGenerate(customGenerateMode);
 
-         alerts.tooltipInformation.successful('Change mode', 0, 500);
-     } catch (error) {
-        alerts.tooltipInformation.failure('Failure in change mode', 0, 2000)
-     }   
- })
+    try {
+        if (customGenerateMode) {
+            passwordCustomView.value = "";
+            instantGeneratorInitial.generateQualityCalculator(
+                customGenerateMode
+            );
+            customGenerate.textContent = "Default generate";
+            passwordGenerationCustom.classList.toggle("hidden");
+            passwordType.classList.toggle("hidden");
+            generateCustomBtn.classList.toggle("hidden");
+            customGenerateMode = false;
+        } else {
+            customGenerate.innerHTML = "Custom generate";
+            passwordGenerationCustom.classList.toggle("hidden");
+            passwordType.classList.toggle("hidden");
+            generateCustomBtn.classList.toggle("hidden");
+            customGenerateMode = true;
+        }
 
+        alerts.tooltipInformation.successful("Change mode", 0, 500);
+    } catch (error) {
+        alerts.tooltipInformation.failure("Failure in change mode", 0, 2000);
+    }
+});
 
 export {
     instantGeneratorInitial,
