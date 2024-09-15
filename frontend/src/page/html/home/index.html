@@ -34,7 +34,7 @@
             </p>
         </div>
         <header
-            class="h-14 w-full flex justify-between items-center px-4 dark:bg-white border-b-2 overflow-hidden"
+            class="h-14 w-full flex justify-between items-center px-4 bg-white border-b-2 -z overflow-hidden"
         >
             <a href="#" class="">
                 <button class="pointer-events-none">
@@ -56,9 +56,9 @@
                     />
                 </div>
                 <ul
-                    class="list-menu bg-white dark:bg-black h-screen w-96 right-0 top-14 border border-t-0 border-neutral-700 dark:border-white rounded-b-xl absolute p-3 items-start z-10 hidden lg:flex lg:justify-around lg:items-center lg:w-[35rem] lg:h-14 lg:top-0 lg:-translate-y-[0.5rem] lg:border-none lg:mt-[0.6rem] lg:bg-transparent"
+                    class="list-menu bg-white dark:bg-slate-400 lg:bg-transparent dark:lg:bg-transparent dark:text-black h-full right-0  border border-t-0 border-neutral-700 dark:border-white rounded-b-xl absolute p-3 pl-8  items-start z-50 hidden lg:flex lg:justify-around lg:items-center w-full md:w-96 lg:w-[35rem] lg:h-14 lg:top-0 lg:-translate-y-[0.5rem] lg:border-none lg:mt-[0.6rem] "
                 >
-                    <li class="list__item">
+                    <li class="list__item dark:text-black">
                         <a href="" class="list__link font-bold">
                             <bold class="list__title">For home</bold>
                         </a>
@@ -76,7 +76,7 @@
                     </li>
                     <li class="list__item">
                         <a href="" class="list__link">
-                            <bold class="list__title">For partners</bold>
+                            <bold class="list__titl">For partners</bold>
                         </a>
                         <p class="list__detalis">
                             Partner with Avast and boost your business
@@ -100,7 +100,7 @@
             </nav>
         </header>
         <div class="container m-auto px-2">
-            <main class="flex flex-col justify-center space-y-5">
+            <main class="flex flex-col justify-center items-center space-y-5">
                 <h1 class="font-bold text-5xl mt-8">
                     Random Password Generator
                 </h1>
@@ -111,7 +111,7 @@
                 <img
                     src="../../../../public/svg/password-level/verystrong.svg"
                     alt=" password quality level"
-                    class="generate-quality-img pointer-events-none"
+                    class="generate-quality-img pointer-events-none w-screen bg-white rounded-md"
                 />
                 <div
                     class="password-generator flex flex-col items-center mx-auto"
